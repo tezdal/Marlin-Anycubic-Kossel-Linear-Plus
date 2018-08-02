@@ -43,3 +43,9 @@ Menu -> Prepare -> Delta Calibration -> Set Delta Height
 Menu -> Prepare -> Delta Calibration -> Store Settings
 
 Done!
+
+Use Baby Z to adjust the first print.
+If needed edit your z-offset and set delta height again.
+
+
+
