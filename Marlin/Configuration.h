@@ -426,19 +426,19 @@
 
   #if ENABLED(DELTA_AUTO_CALIBRATION) || ENABLED(DELTA_CALIBRATION_MENU)
     // Set the radius for the calibration probe points - max DELTA_PRINTABLE_RADIUS for non-eccentric probes
-    #define DELTA_CALIBRATION_RADIUS 100.0 // mm
+    #define DELTA_CALIBRATION_RADIUS 90.0 // mm
     // Set the steprate for papertest probing
     #define PROBE_MANUALLY_STEP 0.05 // mm
   #endif
 
   // Print surface diameter/2 minus unreachable space (avoid collisions with vertical towers).
-  #define DELTA_PRINTABLE_RADIUS 105 // mm
+  #define DELTA_PRINTABLE_RADIUS 100 // mm
 
   // Center-to-center distance of the holes in the diagonal push rods.
-  #define DELTA_DIAGONAL_ROD 267.5 // mm
+  #define DELTA_DIAGONAL_ROD 268.5 // mm
 
   // height from z=0 to home position
-  #define DELTA_HEIGHT 293.00 // get this value from auto calibrate
+  #define DELTA_HEIGHT 295 // get this value from auto calibrate
 
   #define DELTA_ENDSTOP_ADJ { 0.0, 0.0, 0.0 } // get these from auto calibrate
 
@@ -533,14 +533,6 @@
 //============================== Movement Settings ============================
 //=============================================================================
 // @section motion
-
-#define XYZ_FULL_STEPS_PER_ROTATION 200
-#define XYZ_MICROSTEPS 32
-#define XYZ_BELT_PITCH 2
-#define XYZ_PULLEY_TEETH 20
-
-// delta speeds must be the same on xyz
-#define XYZ_STEPS ((XYZ_FULL_STEPS_PER_ROTATION) * (XYZ_MICROSTEPS) / double(XYZ_BELT_PITCH) / double(XYZ_PULLEY_TEETH))
 
 /**
  * Default Settings
@@ -729,12 +721,12 @@
 #define Y_PROBE_OFFSET_FROM_EXTRUDER 0 
 
 
-#define Z_PROBE_OFFSET_FROM_EXTRUDER -19.8  // Increase this if the first layer is too thin (remember: it's a negative number so increase means closer to zero).
+#define Z_PROBE_OFFSET_FROM_EXTRUDER -16.5  // Increase this if the first layer is too thin (remember: it's a negative number so increase means closer to zero).
 // Certain types of probes need to stay away from edges
-#define MIN_PROBE_EDGE 5
+#define MIN_PROBE_EDGE 50
 
 // X and Y axis travel speed (mm/m) between probes
-#define XY_PROBE_SPEED 8000
+#define XY_PROBE_SPEED 6000
 
 // Feedrate (mm/m) for the first approach when double-probing (MULTIPLE_PROBING == 2)
 #define Z_PROBE_SPEED_FAST HOMING_FEEDRATE_Z
@@ -745,7 +737,7 @@
 // The number of probes to perform at each point.
 //   Set to 2 for a fast/slow probe, using the second probe result.
 //   Set to 3 or more for slow probes, averaging the results.
-//#define MULTIPLE_PROBING 2
+#define MULTIPLE_PROBING 2
 
 /**
  * Z probes require clearance when deploying, stowing, and moving between
@@ -770,8 +762,8 @@
 
 // For M851 give a range for adjusting the Z probe offset
 
-#define Z_PROBE_OFFSET_RANGE_MIN -40
-#define Z_PROBE_OFFSET_RANGE_MAX   20
+#define Z_PROBE_OFFSET_RANGE_MIN -25
+#define Z_PROBE_OFFSET_RANGE_MAX   0
 
 // Enable the M48 repeatability test to test probe accuracy
 //#define Z_MIN_PROBE_REPEATABILITY_TEST
@@ -976,7 +968,7 @@
   #define GRID_MAX_POINTS_Y GRID_MAX_POINTS_X
 
   // The Z probe minimum outer margin (to validate G29 parameters).
-  #define MIN_PROBE_EDGE 25
+  #define MIN_PROBE_EDGE 30
 
   #if ENABLED(AUTO_BED_LEVELING_BILINEAR)
 
@@ -1382,7 +1374,7 @@
 //  If CLOCKWISE normally moves DOWN this makes it go UP.
 //  If CLOCKWISE normally moves UP this makes it go DOWN.
 //
-#define REVERSE_MENU_DIRECTION
+// #define REVERSE_MENU_DIRECTION
 
 //
 // Individual Axis Homing
