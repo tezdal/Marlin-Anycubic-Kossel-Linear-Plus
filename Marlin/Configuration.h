@@ -589,11 +589,14 @@
 // Mechanical endstop with COM to ground and NC to Signal uses "false" here (most common setup).
 #define X_MIN_ENDSTOP_INVERTING false // set to true to invert the logic of the endstop.
 #define Y_MIN_ENDSTOP_INVERTING false // set to true to invert the logic of the endstop.
-#define Z_MIN_ENDSTOP_INVERTING false // set to true to invert the logic of the endstop.
+//#define Z_MIN_ENDSTOP_INVERTING false // set to true to invert the logic of the endstop.
+#define Z_MIN_ENDSTOP_INVERTING true // set to true to invert the logic of the endstop.
 #define X_MAX_ENDSTOP_INVERTING false // set to true to invert the logic of the endstop.
 #define Y_MAX_ENDSTOP_INVERTING false // set to true to invert the logic of the endstop.
 #define Z_MAX_ENDSTOP_INVERTING false // set to true to invert the logic of the endstop.
-#define Z_MIN_PROBE_ENDSTOP_INVERTING false // set to true to invert the logic of the probe.
+
+//#define Z_MIN_PROBE_ENDSTOP_INVERTING false // set to true to invert the logic of the probe. //classic
+#define Z_MIN_PROBE_ENDSTOP_INVERTING true // piezo
 
 /**
  * Specify Stepper Driver types
@@ -850,16 +853,17 @@
  */
 #define X_PROBE_OFFSET_FROM_EXTRUDER 0     // X offset: -left  +right  [of the nozzle]
 #define Y_PROBE_OFFSET_FROM_EXTRUDER 0   // Y offset: -front +behind [the nozzle]
-#define Z_PROBE_OFFSET_FROM_EXTRUDER -15.9 // Z offset: -below +above  [the nozzle] - DaHai: For Type 2 Probe!!!
+//#define Z_PROBE_OFFSET_FROM_EXTRUDER -15.9 // Z offset: -below +above  [the nozzle] - DaHai: For Type 2 Probe!!!
+#define Z_PROBE_OFFSET_FROM_EXTRUDER -0.2 // Z offset: -below +above  [the nozzle] - DaHai: For Type 2 Probe!!!
 
 // Certain types of probes need to stay away from edges
 #define MIN_PROBE_EDGE 10 // DaHai: Keeps the Probe Body from crashing into the bed clamps
 
 // X and Y axis travel speed (mm/m) between probes
-#define XY_PROBE_SPEED 4000
+#define XY_PROBE_SPEED 3000
 
 // Feedrate (mm/m) for the first approach when double-probing (MULTIPLE_PROBING == 2)
-#define Z_PROBE_SPEED_FAST HOMING_FEEDRATE_Z
+#define Z_PROBE_SPEED_FAST 20*60
 
 // Feedrate (mm/m) for the "accurate" probe of each point
 #define Z_PROBE_SPEED_SLOW (Z_PROBE_SPEED_FAST / 2)
@@ -867,7 +871,7 @@
 // The number of probes to perform at each point.
 //   Set to 2 for a fast/slow probe, using the second probe result.
 //   Set to 3 or more for slow probes, averaging the results.
-#define MULTIPLE_PROBING 2 // DaHai: Gives more accurate probing results
+#define MULTIPLE_PROBING 3 // DaHai: Gives more accurate probing results
 
 /**
  * Z probes require clearance when deploying, stowing, and moving between
